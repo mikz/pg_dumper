@@ -1,4 +1,6 @@
 class PgDumper
+  require 'pg_dumper/railtie' if defined?(Rails)
+  
   attr_reader :database
   attr_reader :args
   
@@ -11,7 +13,7 @@ class PgDumper
   def run(mode = :silent)
     @binary ||= find_executable
     
-    raise "ERROR: pg_dump binary not found" unless @binary.present?
+    raise "ERROR: pg_dump executable not found" unless @binary.present?
 
     options = {}
     
@@ -19,7 +21,6 @@ class PgDumper
     when :silent
       options[:out] = "/dev/null" 
     end
-    DEBUG {%w{@binary args database options}}
     system @binary, *args, database, options
   end
   

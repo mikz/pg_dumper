@@ -10,7 +10,7 @@ namespace :db do
       file  = (input.blank?)? backup_file : input
     end
     
-    dump = PgDump.new db["database"]
+    dump = PgDumper.new db["database"]
     dump.recreate!
     dump.connection = db
     dump.output = backup_file
@@ -41,7 +41,7 @@ namespace :db do
         file  = (input.blank?)? backup_file : input
       end
 
-      dump = PgDump.new db["database"]
+      dump = PgDumper.new db["database"]
       dump.data_only!
       dump.connection = db
       dump.output = backup_file
