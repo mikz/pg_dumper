@@ -62,6 +62,10 @@ class PgDumper
     add_args '--column-inserts'
   end
 
+  def skip_owner!
+    add_args '--no-owner'
+  end
+
   def silent!
     # FIXME: this is not windows friendly
     # try to use same solution as Bundler::NULL
