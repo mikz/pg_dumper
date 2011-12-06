@@ -69,9 +69,9 @@ class PgDumper
   end
 
   def connection= opts
-    add_args '-p', opts['port'] if opts['port'].present?
-    add_args '-h', opts['host'] if opts['host'].present?
-    add_args '-U', opts['username'] if opts['host'].present?
+    add_args('-p', opts['port']) if opts['port']
+    add_args('-h', opts['host']) if opts['host']
+    add_args('-U', opts['username']) if opts['host']
   end
   alias :auth= :connection=
 
