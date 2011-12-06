@@ -8,10 +8,11 @@ class PgDumper
   attr_reader :database
   attr_reader :output
 
-  def initialize database
+  def initialize database, binary = nil
     @database = database
     @args = []
     @options = {}
+    @binary = binary
   end
 
   def run(mode = :silent)
