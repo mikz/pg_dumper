@@ -73,6 +73,7 @@ class PgDumper
     add_args '-h', opts['host'] if opts['host'].present?
     add_args '-U', opts['username'] if opts['host'].present?
   end
+  alias :auth= :connection=
 
   def output= filename
     @output = filename
