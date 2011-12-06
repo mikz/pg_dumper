@@ -29,7 +29,7 @@ class PgDumper
   end
 
   def command
-    Escape.shell_command([binary, *args, database]).to_s
+    Escape.shell_command([binary, args, database].flatten).to_s
   end
 
   def schema_only!
@@ -88,7 +88,13 @@ class PgDumper
   end
 
   def output
-    File.path(@output)
+    if File.respond_to?(:path)
+      File.path(@output)
+    elsif @output.respond_to?(:to_path)
+      @output.to_path
+    else
+      @output
+    end
   end
 
   def tempfile
