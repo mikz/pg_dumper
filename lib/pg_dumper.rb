@@ -9,7 +9,7 @@ class PgDumper
   attr_reader :output
 
   def initialize database, binary = nil
-    @database = database
+    @database = database or raise "no database given"
     @args = []
     @options = {}
     @binary = binary
