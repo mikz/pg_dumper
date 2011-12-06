@@ -50,7 +50,7 @@ class PgDumper
   end
 
   def compress! level=9
-    add_args '-Z', level if level.present?
+    add_args '-Z', level if level
   end
 
   def verbose!
