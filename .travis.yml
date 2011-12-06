@@ -1,0 +1,7 @@
+rvm:
+  - ree
+  - 1.8.7
+  - 1.9.2
+  - 1.9.3
+script: rspec spec
+bundler_args: --without darwin development
