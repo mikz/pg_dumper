@@ -15,4 +15,6 @@ Dumps database schema **with data**.
 ### db:dump:schema
 Dumps database schema **without data**.
 
+# Credits
+PgDumper uses awesome [Escape](https://github.com/akr/escape) library so thanks to [Tanaka Akira](https://github.com/akr).
 
