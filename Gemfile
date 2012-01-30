@@ -1,7 +1,8 @@
-source "http://rubygems.org"
+source :rubygems
 
-# Specify your gem's dependencies in pg_dumper.gemspec
 gemspec
 
-gem 'guard-rspec'
-gem 'guard-bundler'
+group :guard do
+  gem 'guard-rspec'
+  gem 'guard-bundler'
+end
