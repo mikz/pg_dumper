@@ -11,7 +11,7 @@ namespace :db do
     end
     
     dump = PgDumper.new db["database"]
-    dump.recreate!
+    dump.clear!
     dump.connection = db
     dump.output = backup_file
     dump.verbose! if ENV['VERBOSE'].present?
